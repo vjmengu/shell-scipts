@@ -37,6 +37,7 @@ do
 
 dnf list installed $package &>>$LOG_File_Name
 Validate $? "$package"
+done
 
 
 
