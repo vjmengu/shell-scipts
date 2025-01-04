@@ -8,7 +8,7 @@ Validate(){
 if [ $1 -ne 0 ]
 then
     dnf install $2 -y
-    if [ $1 -ne 0 ]
+    if [ $? -ne 0 ]
     then
         echo -e "$2...$R failure!"
         exit 1
