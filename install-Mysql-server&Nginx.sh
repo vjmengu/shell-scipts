@@ -16,6 +16,7 @@ then
         exit 1
     else
         echo "installing mysql-server...Sucess!"
+    fi
 else
     echo "mysql-server already installed"
 fi
@@ -30,7 +31,9 @@ then
         exit 1
     else
         echo "installing nginx...Sucess!"
+    fi
 else
     echo "nginx already installed"
+fi
 
 
