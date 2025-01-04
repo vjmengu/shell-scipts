@@ -9,19 +9,20 @@ LOG_File_Name="$LOGS_FOLDER/$LOG_File-$Timestamp.log"
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
+N="\e[0m"
 Validate(){
 if [ $1 -ne 0 ]
 then
     dnf install $2 -y &>>$LOG_File_Name
     if [ $? -ne 0 ]
     then
-        echo -e "$2...$R failure!"
+        echo -e "$2...$R failure! $N"
         exit 1
     else
-        echo -e "$2...$G Sucess!"
+        echo -e "$2...$G Sucess $N!"
     fi
 else
-    echo -e "$2 already $Y installed"
+    echo -e "$2 already $Y installed $N"
 fi
 }
 if [ $USERID -ne 0 ]
