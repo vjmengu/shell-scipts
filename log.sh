@@ -12,7 +12,7 @@ Y="\e[33m"
 Validate(){
 if [ $1 -ne 0 ]
 then
-    dnf install $2 -y &>>LOG_File_Name
+    dnf install $2 -y &>>$LOG_File_Name
     if [ $? -ne 0 ]
     then
         echo -e "$2...$R failure!"
@@ -30,12 +30,12 @@ then
     exit 1
 fi
 
-echo "script started executing:: $Timestamp" &>>LOG_File_Name
+echo "script started executing:: $Timestamp" &>>$LOG_File_Name
 
-dnf list installed mysql-server &>>LOG_File_Name
+dnf list installed mysql-server &>>$LOG_File_Name
 Validate $? "mysql-server"
 
 
-dnf list installed nginx &>>LOG_File_Name
+dnf list installed nginx &>>$LOG_File_Name
 Validate $? "nginx"
 
