@@ -1,7 +1,7 @@
 #!/bin/bash
 USERID=$(id -u)
 
-LOGS_FOLDER="var/log/shell-script-logs"
+LOGS_FOLDER="/var/log/shell-script-logs"
 LOG_File=$(echo $0 | cut -d "." -f1)
 Timestamp=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_File_Name="$LOGS_FOLDER/$LOG_File-$Timestamp.log"
