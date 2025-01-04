@@ -34,6 +34,6 @@ then
     fi
 else
     echo "nginx already installed"
-fi
+fi  
 
 
