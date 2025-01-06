@@ -1,0 +1,33 @@
+#!/bin/bash
+
+USER=$(id -u)
+
+if [ $USER -ne 0 ]
+then
+    echo "need sudo access to execute this script"
+    exit 1
+else
+    dnf list installed nginx
+    if [ $? -ne 0 ]
+    then
+        dnf install nginx -y
+        if [ $? -ne 0 ]
+        then
+            echo "nginx not installed"
+            exit 1
+        else
+            echo "nginx installed"
+        fi
+    else
+        echo "nginx already installed"
+    fi
+fi
+
+systemctl start nginx
+systemctl enable nginx
+rm -rf /usr/share/nginx/html/*
+curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+cd /usr/share/nginx/html
+unzip /tmp/frontend.zip
+cp /home/ec2-user/shell-scipts/expense.conf /etc/nginx/default.d/expense.conf
+systemctl restart nginx
