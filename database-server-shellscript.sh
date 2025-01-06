@@ -22,5 +22,7 @@ else
         echo "mysql-sever already installed"
     fi
 fi
+
 systemctl start mysqld
 systemctl enable mysqld
+mysql_secure_installation --set-root-pass ExpenseApp@1
