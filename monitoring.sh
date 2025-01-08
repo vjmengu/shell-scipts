@@ -11,7 +11,7 @@ do
     Partion=$(echo $line | awk -F " " '{print $NF}')
     if [ "$Diskusage" -ge "$limit" ]
     then
-        msg+=" the partion :: $Partion has memory $Diskusage "
+        msg+=" the partion :: $Partion has memory $Diskusage \n"
     fi
 done <<< $disk
 
