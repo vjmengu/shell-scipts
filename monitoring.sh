@@ -1,18 +1,20 @@
 #!/bin/bash
 
+disk=$(df -hT | grep xfs)
 
-Diskusage=$(df -hT | grep xfs | awk -F " " '{print $6F}'|cut -d "%" -f1)
 
-Partion=$(df -hT | grep xfs | awk -F " " '{print $NF}')
+
 
 msg=""
 
 while read -r line
 do
+    Diskusage=$(echo $line | awk -F " " '{print $6F}'|cut -d "%" -f1)
+    Partion=$(echo $line | awk -F " " '{print $NF}')
     if [ $line -ge 5 ]
     then
-        msg+= "the partion :: $Partion has memory $line"
+        msg+= "the partion :: $Partion has memory $line \n"
     fi
-done <<< $Diskusage
+done <<< $disk
 
-echo "$msg"
+echo -e "$msg"
