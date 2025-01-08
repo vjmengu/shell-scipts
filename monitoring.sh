@@ -12,7 +12,7 @@ while read -r line
 do
     Diskusage=$(echo $line | awk -F " " '{print $6F}'|cut -d "%" -f1)
     Partion=$(echo $line | awk -F " " '{print $NF}')
-    if [ $line -ge $limit ]
+    if [ "$line" -ge "$limit" ]
     then
         msg+= "the partion :: $Partion has memory $line \n"
     fi
