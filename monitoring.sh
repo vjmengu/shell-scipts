@@ -11,7 +11,8 @@ while read -r line
 do
     if [ $line -ge 5 ]
     then
-        msg+= "the partion :: $partion has memory $line"
-done<<<$Diskusage
+        msg+= "the partion :: $Partion has memory $line"
+    fi
+done <<< $Diskusage
 
 echo "$msg"
