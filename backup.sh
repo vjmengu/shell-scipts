@@ -32,12 +32,12 @@ fi
 
 files=$(find $sourcedir -name "*.log" -mtime +$tim)
 
-if [ -n $file ]
+if [ -n "$file" ]
 then
     x=$destindir/backup-$timestamp.log
     echo "zipping $files"
-    $files|zip @ $x
-    if [ -f $x]
+    $(files)|zip @ "$x"
+    if [ -f "$x"]
     then
         echo "sucessfully created zip file check on $destindir"
         while read -r ff
