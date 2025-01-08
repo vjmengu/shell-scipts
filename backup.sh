@@ -35,7 +35,7 @@ files=$(find $sourcedir -name "*.log" -mtime +$tim)
 if [ -n $file ]
 then
     x=$destindir/backup-$timestamp.log
-    echo "zipping $file"
+    echo "zipping $files"
     $files|zip @ $x
     if [ -f $x]
     then
