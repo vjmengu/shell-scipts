@@ -36,7 +36,7 @@ if [ -n "$files" ]
 then
     x="$destindir/backup-$timestamp.log"
     echo "zipping $files"   
-    $(files)|zip @ "$x"
+    $files|zip @ "$x"
     if [ -f "$x"]
     then
         echo "sucessfully created zip file check on $destindir"
