@@ -9,14 +9,14 @@ usage(){
     echo " backup.sh sourcedir destinationdir no.of day(optional) "
 }
 
-if [ ! -d $destindir]
+if [ ! -d "$destindir"]
 then
     echo "invalid $destindir"
     usage
     exit 1
 fi
 
-if [ ! -d $sourcedir]
+if [ ! -d "$sourcedir"]
 then
     echo "invalid $sourcedir"
     usage
