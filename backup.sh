@@ -43,7 +43,9 @@ then
     else
         echo "zipping failed!"
         exit 1
+    fi
 else
     echo "no older files than $tim"
+fi
 
 
