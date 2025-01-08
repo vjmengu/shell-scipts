@@ -43,7 +43,7 @@ then
         echo "sucessfully created zip file check on $destindir"
         while read -r ff
         do
-            echo "deleting $files"
+            echo "deleting $ff"
             rm -rf $ff
         done <<<$files
     else
