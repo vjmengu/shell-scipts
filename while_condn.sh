@@ -3,4 +3,4 @@
 while read -r pp
 do
     echo $pp
-done < array.sh
+done < arrays.sh
