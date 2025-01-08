@@ -3,9 +3,6 @@
 disk=$(df -hT | grep xfs)
 limit=5
 
-
-
-
 msg=""
 
 while read -r line
@@ -14,7 +11,7 @@ do
     Partion=$(echo $line | awk -F " " '{print $NF}')
     if [ "$Diskusage" -ge "$limit" ]
     then
-        msg+= "the partion :: $Partion has memory $Diskusage \n"
+        msg+= " the partion :: $Partion has memory $Diskusage \n "
     fi
 done <<< $disk
 
