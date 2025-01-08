@@ -37,7 +37,7 @@ then
     x="$destindir/backup-$timestamp.log"
     echo "zipping $files"   
     find $sourcedir -name "*.log" -mtime +$tim  |zip @ "$x"
-    if [ -f "$x"]
+    if [ -f "$x" ]
     then
         echo "sucessfully created zip file check on $destindir"
         while read -r ff
